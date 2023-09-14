@@ -1,0 +1,57 @@
+﻿# Prolog - Auto Generated #
+import os, uuid, matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot
+import pandas
+
+import sys
+sys.tracebacklimit = 0
+
+os.chdir(u'C:/Users/Administrator/PythonEditorWrapper_6a870b9b-4b72-4879-8a2f-7261ae5fcb15')
+dataset = pandas.read_csv('input_df_1f96f4f0-6b3e-426c-a2a1-0383c6200280.csv')
+
+matplotlib.pyplot.figure(figsize=(5.55555555555556,4.16666666666667), dpi=72)
+matplotlib.pyplot.show = lambda args=None,kw=None: matplotlib.pyplot.savefig(str(uuid.uuid1()))
+# Original Script. Please update your script content here and once completed copy below section back to the original editing window #
+# The following code to create a dataframe and remove duplicated rows is always executed and acts as a preamble for your script: 
+
+# dataset = pandas.DataFrame(Country-Region)
+# dataset = dataset.drop_duplicates()
+
+# Paste or type your script code here:
+# The following code to create a dataframe and remove duplicated rows is always executed and acts as a preamble for your script: 
+
+dataset = pandas.DataFrame(Country)
+dataset = dataset.drop_duplicates()
+
+# Paste or type your script code here:
+
+
+# Assuming you already have the 'dataset' DataFrame without duplicate rows
+# Replace 'dataset' with your actual DataFrame name if different
+
+# Group by 'Country' and count occurrences
+country_counts = dataset['Country'].value_counts().reset_index()
+
+# Rename columns
+country_counts.columns = ['Country', 'Count']
+
+# Sort by count (optional)
+country_counts = country_counts.sort_values(by='Count', ascending=False)
+
+# Create a bar chart
+plt.figure(figsize=(10, 6))
+plt.bar(country_counts['Country'], country_counts['Count'], color='skyblue')
+plt.xlabel('Country')
+plt.ylabel('Count')
+plt.title('Country vs. Count')
+
+# Rotate x-axis labels for better readability (optional)
+plt.xticks(rotation=45, ha='right')
+
+# Display the plot
+plt.show()
+
+
+# Epilog - Auto Generated #
+os.chdir(u'C:/Users/Administrator/PythonEditorWrapper_6a870b9b-4b72-4879-8a2f-7261ae5fcb15')
